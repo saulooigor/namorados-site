@@ -204,108 +204,53 @@
 
 /* Mobile pequeno (até 390px) - iPhone 14 e similares */
 @media (max-width: 390px) {
-  .countdown-title {
-    font-size: var(--fs-2xl);
-    margin-bottom: var(--spacing-lg);
-  }
-  
   .countdown-timer {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-2xl);
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    max-width: 200px;
+    margin: 0 auto var(--spacing-2xl);
   }
   
   .time-unit {
-    padding: var(--spacing-xs);
-  }
-  
-  .time-number {
-    font-size: var(--fs-lg);
-  }
-  
-  .time-label {
-    font-size: var(--fs-xs);
-  }
-  
-  .countdown-heart {
-    width: 50px;
-    height: 50px;
+    padding: var(--spacing-md);
   }
 }
 
 /* Mobile pequeno (até 375px) */
 @media (max-width: 375px) {
-  .countdown-title {
-    font-size: var(--fs-xl);
-    margin-bottom: var(--spacing-md);
-  }
-  
   .countdown-timer {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    margin-bottom: var(--spacing-xl);
-  }
-  
-  .time-unit {
-    padding: 6px;
-  }
-  
-  .time-number {
-    font-size: var(--fs-md);
-  }
-  
-  .countdown-heart {
-    width: 40px;
-    height: 40px;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    max-width: 180px;
+    margin: 0 auto var(--spacing-xl);
   }
 }
 
 /* Mobile médio (376px - 640px) */
 @media (min-width: 376px) and (max-width: 640px) {
   .countdown-timer {
-    gap: var(--spacing-lg);
-    max-width: 500px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    max-width: 300px;
     margin: 0 auto var(--spacing-3xl);
-  }
-  
-  .time-number {
-    font-size: var(--fs-4xl);
   }
 }
 
 /* Tablet (641px - 1023px) */
 @media (min-width: 641px) and (max-width: 1023px) {
-  .countdown-title {
-    font-size: var(--fs-4xl);
-  }
-  
   .countdown-timer {
+    grid-template-columns: repeat(4, 1fr);
     max-width: 600px;
     margin: 0 auto var(--spacing-3xl);
-  }
-  
-  .time-number {
-    font-size: var(--fs-5xl);
   }
 }
 
 /* Desktop (1024px+) */
 @media (min-width: 1024px) {
-  .countdown-title {
-    font-size: var(--fs-5xl);
-  }
-  
   .countdown-timer {
+    grid-template-columns: repeat(4, 1fr);
     max-width: 700px;
     margin: 0 auto var(--spacing-3xl);
-  }
-  
-  .time-number {
-    font-size: var(--fs-6xl);
-  }
-  
-  .countdown-heart {
-    font-size: var(--fs-6xl);
   }
   
   /* Mais partículas no desktop */
