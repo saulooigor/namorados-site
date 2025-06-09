@@ -6,20 +6,23 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   background: var(--gradient-dark);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: var(--z-countdown);
   overflow: hidden;
+  padding: var(--spacing-sm);
 }
 
 .countdown-content {
   text-align: center;
   position: relative;
   z-index: 2;
-  padding: var(--spacing-xl);
-  max-width: 90%;
+  padding: var(--spacing-md);
+  max-width: 95%;
+  width: 100%;
 }
 
 /* ===== TÍTULO DO COUNTDOWN ===== */
@@ -199,28 +202,61 @@
 
 /* ===== RESPONSIVIDADE ===== */
 
-/* Mobile pequeno (até 375px) */
-@media (max-width: 375px) {
+/* Mobile pequeno (até 390px) - iPhone 14 e similares */
+@media (max-width: 390px) {
   .countdown-title {
     font-size: var(--fs-2xl);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
   }
   
   .countdown-timer {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-2xl);
   }
   
   .time-unit {
-    padding: var(--spacing-md);
+    padding: var(--spacing-xs);
   }
   
   .time-number {
-    font-size: var(--fs-3xl);
+    font-size: var(--fs-lg);
+  }
+  
+  .time-label {
+    font-size: var(--fs-xs);
   }
   
   .countdown-heart {
-    font-size: var(--fs-4xl);
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Mobile pequeno (até 375px) */
+@media (max-width: 375px) {
+  .countdown-title {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .countdown-timer {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .time-unit {
+    padding: 6px;
+  }
+  
+  .time-number {
+    font-size: var(--fs-md);
+  }
+  
+  .countdown-heart {
+    width: 40px;
+    height: 40px;
   }
 }
 
