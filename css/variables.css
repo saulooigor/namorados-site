@@ -1,0 +1,96 @@
+/* ===== CSS CUSTOM PROPERTIES ===== */
+:root {
+  /* === CORES BASE === */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: rgba(255, 255, 255, 0.08);
+  --bg-overlay: rgba(0, 0, 0, 0.7);
+  
+  /* === CORES ROMÂNTICAS === */
+  --rose-gold: #e8b4b8;
+  --rose-gold-dark: #d4a5a5;
+  --soft-pink: #f7c6c7;
+  --soft-pink-light: #ffb3ba;
+  --champagne: #f4e4bc;
+  --champagne-dark: #ddbf94;
+  
+  /* === CORES DE TEXTO === */
+  --text-primary: #f8f8f2;
+  --text-secondary: #e6e6e6;
+  --text-muted: rgba(248, 248, 242, 0.7);
+  --text-accent: var(--rose-gold);
+  
+  /* === BORDAS E LINHAS === */
+  --border-light: rgba(255, 255, 255, 0.2);
+  --border-accent: rgba(232, 180, 184, 0.5);
+  
+  /* === GRADIENTES === */
+  --gradient-romantic: linear-gradient(135deg, var(--rose-gold) 0%, var(--soft-pink) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  --gradient-overlay: linear-gradient(to bottom, transparent 0%, rgba(26, 26, 46, 0.8) 100%);
+  
+  /* === TIPOGRAFIA === */
+  --font-romantic: 'Dancing Script', cursive;
+  --font-elegant: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* === TAMANHOS DE FONTE === */
+  --fs-xs: 0.75rem;    /* 12px */
+  --fs-sm: 0.875rem;   /* 14px */
+  --fs-base: 1rem;     /* 16px */
+  --fs-lg: 1.125rem;   /* 18px */
+  --fs-xl: 1.25rem;    /* 20px */
+  --fs-2xl: 1.5rem;    /* 24px */
+  --fs-3xl: 1.875rem;  /* 30px */
+  --fs-4xl: 2.25rem;   /* 36px */
+  --fs-5xl: 3rem;      /* 48px */
+  --fs-6xl: 4rem;      /* 64px */
+  
+  /* === ESPAÇAMENTOS === */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  
+  /* === TRANSIÇÕES === */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-romantic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* === SOMBRAS === */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-romantic: 0 8px 32px rgba(232, 180, 184, 0.2);
+  --shadow-glow: 0 0 20px rgba(232, 180, 184, 0.3);
+  
+  /* === BORDAS ARREDONDADAS === */
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 1rem;       /* 16px */
+  --radius-xl: 1.5rem;     /* 24px */
+  --radius-full: 9999px;
+  
+  /* === BREAKPOINTS (para usar em JS) === */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  
+  /* === Z-INDEX === */
+  --z-loading: 9999;
+  --z-lightbox: 9998;
+  --z-countdown: 9997;
+  --z-header: 100;
+  --z-modal: 50;
+  --z-overlay: 10;
+  
+  /* === ANIMAÇÕES === */
+  --pulse-duration: 2s;
+  --float-duration: 3s;
+  --fade-duration: 0.6s;
+}

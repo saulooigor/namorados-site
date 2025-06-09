@@ -1,0 +1,283 @@
+/* ===== COUNTDOWN SCREEN ===== */
+
+.countdown-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--gradient-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-countdown);
+  overflow: hidden;
+}
+
+.countdown-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: var(--spacing-xl);
+  max-width: 90%;
+}
+
+/* ===== TÍTULO DO COUNTDOWN ===== */
+.countdown-title {
+  font-family: var(--font-romantic);
+  font-size: var(--fs-3xl);
+  color: var(--rose-gold);
+  margin-bottom: var(--spacing-2xl);
+  text-shadow: 0 2px 10px rgba(232, 180, 184, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+/* ===== TIMER ===== */
+.countdown-timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-3xl);
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-romantic);
+  transition: transform var(--transition-normal);
+}
+
+.time-unit:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow);
+}
+
+.time-number {
+  font-family: var(--font-elegant);
+  font-size: var(--fs-4xl);
+  font-weight: 700;
+  color: var(--soft-pink);
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(255, 179, 186, 0.4);
+  margin-bottom: var(--spacing-sm);
+  min-width: 2ch; /* Evita layout shift */
+}
+
+.time-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ===== CORAÇÃO PULSANTE ===== */
+.countdown-heart {
+  font-size: var(--fs-5xl);
+  animation: heartbeat var(--pulse-duration) ease-in-out infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 10px rgba(232, 180, 184, 0.6));
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(232, 180, 184, 0.6));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(232, 180, 184, 0.8));
+  }
+}
+
+/* ===== PARTÍCULAS DE FUNDO ===== */
+.particles-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particles-bg::before,
+.particles-bg::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--rose-gold);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px var(--rose-gold),
+    20px 30px 0 var(--champagne),
+    40px 70px 0 var(--soft-pink),
+    90px 40px 0 var(--rose-gold),
+    120px 80px 0 var(--champagne),
+    150px 30px 0 var(--soft-pink),
+    180px 90px 0 var(--rose-gold),
+    220px 50px 0 var(--champagne),
+    280px 20px 0 var(--soft-pink),
+    320px 60px 0 var(--rose-gold),
+    380px 30px 0 var(--champagne),
+    420px 80px 0 var(--soft-pink);
+  animation: float var(--float-duration) ease-in-out infinite;
+}
+
+.particles-bg::after {
+  animation-delay: -1.5s;
+  box-shadow: 
+    60px 10px 0 var(--champagne),
+    100px 50px 0 var(--rose-gold),
+    140px 90px 0 var(--soft-pink),
+    200px 20px 0 var(--champagne),
+    260px 70px 0 var(--rose-gold),
+    300px 40px 0 var(--soft-pink),
+    350px 80px 0 var(--champagne),
+    400px 30px 0 var(--rose-gold);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* ===== ANIMAÇÕES DE ENTRADA ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Mobile pequeno (até 375px) */
+@media (max-width: 375px) {
+  .countdown-title {
+    font-size: var(--fs-2xl);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .time-unit {
+    padding: var(--spacing-md);
+  }
+  
+  .time-number {
+    font-size: var(--fs-3xl);
+  }
+  
+  .countdown-heart {
+    font-size: var(--fs-4xl);
+  }
+}
+
+/* Mobile médio (376px - 640px) */
+@media (min-width: 376px) and (max-width: 640px) {
+  .countdown-timer {
+    gap: var(--spacing-lg);
+    max-width: 500px;
+    margin: 0 auto var(--spacing-3xl);
+  }
+  
+  .time-number {
+    font-size: var(--fs-4xl);
+  }
+}
+
+/* Tablet (641px - 1023px) */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .countdown-title {
+    font-size: var(--fs-4xl);
+  }
+  
+  .countdown-timer {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-3xl);
+  }
+  
+  .time-number {
+    font-size: var(--fs-5xl);
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .countdown-title {
+    font-size: var(--fs-5xl);
+  }
+  
+  .countdown-timer {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-3xl);
+  }
+  
+  .time-number {
+    font-size: var(--fs-6xl);
+  }
+  
+  .countdown-heart {
+    font-size: var(--fs-6xl);
+  }
+  
+  /* Mais partículas no desktop */
+  .particles-bg::before {
+    box-shadow: 
+      0 0 10px var(--rose-gold),
+      20px 30px 0 var(--champagne),
+      40px 70px 0 var(--soft-pink),
+      90px 40px 0 var(--rose-gold),
+      120px 80px 0 var(--champagne),
+      150px 30px 0 var(--soft-pink),
+      180px 90px 0 var(--rose-gold),
+      220px 50px 0 var(--champagne),
+      280px 20px 0 var(--soft-pink),
+      320px 60px 0 var(--rose-gold),
+      380px 30px 0 var(--champagne),
+      420px 80px 0 var(--soft-pink),
+      480px 40px 0 var(--rose-gold),
+      520px 70px 0 var(--champagne),
+      580px 25px 0 var(--soft-pink),
+      620px 85px 0 var(--rose-gold);
+  }
+}
+
+/* ===== TRANSIÇÃO DE SAÍDA ===== */
+.countdown-container.fade-out {
+  animation: fadeOut var(--fade-duration) ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}

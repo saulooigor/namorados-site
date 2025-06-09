@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nossa História de Amor - Um site especial para o Dia dos Namorados">
+    <title>Nossa História de Amor ❤️</title>
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/countdown.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+</head>
+<body>
+    <!-- Countdown Screen (será mostrado inicialmente) -->
+    <div id="countdown-screen" class="countdown-container">
+        <div class="countdown-content">
+            <h1 class="countdown-title">Algo especial está sendo preparado...</h1>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <span id="days" class="time-number">00</span>
+                    <span class="time-label">dias</span>
+                </div>
+                <div class="time-unit">
+                    <span id="hours" class="time-number">00</span>
+                    <span class="time-label">horas</span>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes" class="time-number">00</span>
+                    <span class="time-label">minutos</span>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds" class="time-number">00</span>
+                    <span class="time-label">segundos</span>
+                </div>
+            </div>
+            <div class="countdown-heart">❤️</div>
+        </div>
+        <div class="particles-bg"></div>
+    </div>
+
+    <!-- Site Principal (será revelado após countdown) -->
+    <main id="main-site" class="main-content hidden">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-background">
+                <img src="assets/images/hero/couple-main.jpg" alt="Nossa foto especial" loading="lazy">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Nossa História de Amor</h1>
+                <p class="hero-subtitle">Uma jornada que começou em [DATA] e continua para sempre</p>
+                <div class="hero-scroll-indicator">
+                    <span>Deslize para descobrir</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nossa Jornada -->
+        <section id="timeline" class="timeline-section">
+            <div class="container">
+                <h2 class="section-title">Nossa Jornada</h2>
+                <div class="days-counter">
+                    <span class="counter-number" id="days-together">0</span>
+                    <span class="counter-label">dias juntos</span>
+                </div>
+                <div class="timeline-container">
+                    <!-- Timeline items serão adicionados via JS ou aqui -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria de Momentos -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">Nossos Momentos</h2>
+                <div class="gallery-categories">
+                    <button class="category-btn active" data-category="all">Todos</button>
+                    <button class="category-btn" data-category="primeiros">Primeiros Momentos</button>
+                    <button class="category-btn" data-category="viagens">Viagens</button>
+                    <button class="category-btn" data-category="especiais">Especiais</button>
+                </div>
+                <div class="gallery-grid">
+                    <!-- Fotos serão carregadas via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Nossos Lugares -->
+        <section id="places" class="places-section">
+            <div class="container">
+                <h2 class="section-title">Nossos Lugares Especiais</h2>
+                <div class="places-container">
+                    <!-- Lugares especiais -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Declaração -->
+        <section id="declaration" class="declaration-section">
+            <div class="container">
+                <h2 class="section-title">Para Você, Meu Amor</h2>
+                <div class="declaration-content">
+                    <div class="typewriter-text" id="love-letter">
+                        <!-- Carta será escrita com efeito typewriter -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trilha Sonora -->
+        <section id="music" class="music-section">
+            <div class="container">
+                <h2 class="section-title">Nossa Trilha Sonora</h2>
+                <div class="music-player">
+                    <div class="player-controls">
+                        <button id="prev-btn">⏮️</button>
+                        <button id="play-btn">▶️</button>
+                        <button id="next-btn">⏭️</button>
+                    </div>
+                    <div class="song-info">
+                        <h3 id="song-title">Selecione uma música</h3>
+                        <p id="song-artist">As músicas que marcaram nossa história</p>
+                    </div>
+                    <div class="playlist">
+                        <!-- Playlist será carregada via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Surpresa Final -->
+        <section id="surprise" class="surprise-section">
+            <div class="container">
+                <h2 class="section-title">Uma Surpresa Especial</h2>
+                <div class="surprise-content">
+                    <!-- Conteúdo surpresa -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Carregando nossos momentos especiais...</p>
+    </div>
+
+    <!-- Lightbox para galeria -->
+    <div id="lightbox" class="lightbox hidden">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-nav">
+                <button class="lightbox-prev">❮</button>
+                <button class="lightbox-next">❯</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="libs/gsap.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/music-player.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

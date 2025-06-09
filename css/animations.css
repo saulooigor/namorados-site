@@ -1,0 +1,515 @@
+/* ===== ANIMATIONS & EFFECTS ===== */
+
+/* ===== KEYFRAMES PRINCIPAIS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-200deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(232, 180, 184, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(232, 180, 184, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* ===== CLASSES DE ANIMAÇÃO ===== */
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.8s ease-out both;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.8s ease-out both;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s ease-out both;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.8s ease-out both;
+}
+
+.animate-slideInDown {
+  animation: slideInDown 0.8s ease-out both;
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.8s ease-out both;
+}
+
+.animate-zoomOut {
+  animation: zoomOut 0.8s ease-out both;
+}
+
+.animate-rotateIn {
+  animation: rotateIn 1s ease-out both;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* ===== DELAYS PARA ANIMAÇÕES ===== */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ===== EFEITOS ESPECIAIS ===== */
+
+/* Efeito de digitação para textos */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--rose-gold);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: 
+    typewriter 3s steps(40, end),
+    blink 0.75s step-end infinite;
+}
+
+/* Efeito shimmer para loading */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(232, 180, 184, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Partículas flutuantes */
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+  content: '💕';
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.floating-hearts::before {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-hearts::after {
+  left: 80%;
+  animation-delay: 3s;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: -50px;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    bottom: 100vh;
+    transform: translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Efeito parallax sutil */
+.parallax-slow {
+  will-change: transform;
+}
+
+/* Hover effects para cards */
+.card-hover {
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Efeito de reveal no scroll */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MICRO-ANIMAÇÕES ===== */
+
+/* Botões com efeitos especiais */
+.btn-magical {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-magical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-magical:hover::before {
+  left: 100%;
+}
+
+/* Texto com efeito brilhante */
+.text-sparkle {
+  background: linear-gradient(
+    45deg,
+    var(--rose-gold),
+    var(--champagne),
+    var(--soft-pink),
+    var(--rose-gold)
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Corações pulsantes */
+.heart-pulse {
+  display: inline-block;
+  animation: heartPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* ===== EFEITOS DE LOADING ===== */
+
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: '';
+  }
+  40% {
+    content: '.';
+  }
+  60% {
+    content: '..';
+  }
+  80%, 100% {
+    content: '...';
+  }
+}
+
+/* Spinner romântico */
+.romantic-spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 20px auto;
+}
+
+.romantic-spinner::before {
+  content: '💕';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  animation: spin 2s linear infinite;
+}
+
+/* ===== TRANSIÇÕES SUAVES ===== */
+
+/* Transições globais para performance */
+* {
+  transition-property: transform, opacity, box-shadow, filter;
+  transition-duration: var(--transition-normal);
+  transition-timing-function: ease;
+}
+
+/* Evitar transições em elementos pesados */
+img,
+video,
+iframe {
+  transition: transform var(--transition-normal);
+}
+
+/* ===== EFEITOS ESPECIAIS MOBILE ===== */
+
+@media (max-width: 768px) {
+  /* Reduzir animações complexas no mobile */
+  .floating-hearts,
+  .parallax-slow {
+    display: none;
+  }
+  
+  /* Animações mais rápidas no mobile */
+  .animate-fadeInUp,
+  .animate-slideInUp {
+    animation-duration: 0.6s;
+  }
+  
+  /* Simplificar efeitos de hover no touch */
+  .card-hover:hover {
+    transform: none;
+  }
+  
+  .card-hover:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ===== PREFERÊNCIA DE MOVIMENTO REDUZIDO ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .floating-hearts,
+  .parallax-slow,
+  .animate-pulse,
+  .animate-glow {
+    animation: none !important;
+  }
+}
+
+/* ===== EFEITOS DE ENTRADA DO SITE ===== */
+
+.main-content {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero-section .hero-content > * {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-section .hero-title {
+  animation-delay: 0.2s;
+}
+
+.hero-section .hero-subtitle {
+  animation-delay: 0.4s;
+}
+
+.hero-section .hero-scroll-indicator {
+  animation-delay: 0.6s;
+}
