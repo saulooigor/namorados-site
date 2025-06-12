@@ -2,7 +2,7 @@
 
 class LoveSite {
   constructor() {
-    this.relationshipStartDate = '2023-01-15'; // AJUSTE AQUI - Data do início do relacionamento
+    this.relationshipStartDate = '2022-01-28'; // AJUSTE AQUI - Data do início do relacionamento
     this.isInitialized = false;
     this.currentSection = 'hero';
     
@@ -98,21 +98,105 @@ class LoveSite {
     const timelineData = [
       {
         date: this.relationshipStartDate,
-        title: 'Nosso Primeiro Encontro',
+        title: 'Quando tudo começou',
         description: 'O dia em que tudo começou ❤️',
-        image: 'assets/images/timeline/primeiro-encontro.jpg'
+        image: 'assets/images/timeline/preencher.png'
       },
       {
-        date: '2023-03-14',
-        title: 'Primeiro "Eu Te Amo"',
-        description: 'Quando soubemos que era para sempre 💕',
-        image: 'assets/images/timeline/primeiro-eu-te-amo.jpg'
+        date: '2022-02-15',
+        title: '2 reais ou um pudim misterioso?',
+        description: 'Nosso primeiro beijo 😘',
+        image: 'assets/images/timeline/preencher.png'
       },
       {
-        date: '2023-07-20',
+        date: '2022-02-15',
+        title: 'Nosso primeiro encontro',
+        description: 'Nada melhor que um macarrão em frente a PUC 🍝',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2022-03-19',
+        title: 'O término de 1 dia',
+        description: 'Nós não aguentamos nem 24 horas separados 😂',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2022-04-16',
+        title: 'O dia que conheci sua família por parte de pai',
+        description: 'E depois você conheceu meu pai e te apresentei como namorada 🥰',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2022-10-27',
+        title: 'Rolou um pedido que não foi tão surpresa assim',
+        description: 'Mas foi especial do mesmo jeito 💍',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2022-11-08',
+        title: 'Encontramos o lugar para iniciar nossa vida juntos',
+        description: 'Era a certeza de que estávamos no caminho certo 🏡',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2022-09-11',
+        title: 'Nosso primeiro pet 🐶',
+        description: 'Tiiipaammmmmmmmmmm and Blaaaair 🐾',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2023-01-23',
         title: 'Nossa Primeira Viagem',
         description: 'Aventuras juntos criam as melhores memórias ✈️',
-        image: 'assets/images/timeline/primeira-viagem.jpg'
+        image: 'assets/images/timeline/primeiraviagem.jpg'
+      },
+      {
+        date: '2023-03-05',
+        title: 'Nossa primeira perda familiar 😢',
+        description: 'Vovó Dete partiu, mas sempre estará em nossos corações ❤️',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2023-12-05',
+        title: 'Seu primeiro dedo quebrado hahahaha',
+        description: 'Justo o dedinho do pé direito, mas você é forte e superou! 💪',
+        image: 'assets/images/timeline/pequebrado.jpg'
+      },
+      {
+        date: '2024-06-05',
+        title: 'Nosso primeiro automotivo 🚗',
+        description: 'Não foi um carro, mas sim uma moto! 🏍️',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2024-12-24',
+        title: 'Nosso primeiro e último Natal na família Solar do Madeira',
+        description: 'O primeiro e mais importante Natal graças a você, minha linda! 🎄',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2024-02-10',
+        title: 'Perdemos mais um membro da família 😢',
+        description: 'Izabela do Solar do Madeira, norinha querida!!!',
+        image: 'assets/images/timeline/preencher.png'
+      },
+      {
+        date: '2024-12-05',
+        title: 'Donatello Chegooouuuuu!!',
+        description: 'Nosso docinho chegou para completar a família 🐢',
+        image: 'assets/images/timeline/donatello.jpg'
+      },
+      {
+        date: '2025-03-29',
+        title: 'Conhecemos o Nordeste!!',
+        description: 'A viagem dos sonhos para relaxar e aproveitar a vida 🌴',
+        image: 'assets/images/timeline/donatello.jpg'
+      },
+      {
+        date: '2025-06-12',
+        title: 'Seguimos...',
+        description: 'Seguimos escrevendo nossa história juntos, com amor e aventuras! 💖',
+        image: 'assets/images/timeline/donatello.jpg'
       }
       // Adicione mais momentos aqui
     ];
