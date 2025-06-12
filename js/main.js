@@ -100,7 +100,7 @@ class LoveSite {
         date: this.relationshipStartDate,
         title: 'Quando tudo começou',
         description: 'O dia em que tudo começou ❤️',
-        image: 'assets/images/timeline/first.png'
+        image: 'assets/images/timeline/first.jpg'
       },
       {
         date: '2022-02-15',
