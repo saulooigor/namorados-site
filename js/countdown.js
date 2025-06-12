@@ -3,7 +3,7 @@
 class CountdownTimer {
   constructor() {
     // Data target - AJUSTE AQUI PARA SUA DATA
-    this.targetDate = new Date('2025-06-12T12:00:00-03:00');
+    this.targetDate = new Date('2025-06-12T01:00:00-03:00');
     
     // Elementos DOM
     this.daysEl = document.getElementById('days');
