@@ -100,7 +100,7 @@ class LoveSite {
         date: this.relationshipStartDate,
         title: 'Quando tudo começou',
         description: 'O dia em que tudo começou ❤️',
-        image: 'assets/images/timeline/preencher.png'
+        image: 'assets/images/timeline/first.png'
       },
       {
         date: '2022-02-15',
@@ -178,7 +178,7 @@ class LoveSite {
         date: '2024-02-10',
         title: 'Perdemos mais um membro da família 😢',
         description: 'Izabela do Solar do Madeira, norinha querida!!!',
-        image: 'assets/images/timeline/preencher.png'
+        image: 'assets/images/timeline/pai.jpg'
       },
       {
         date: '2024-12-05',
@@ -190,13 +190,13 @@ class LoveSite {
         date: '2025-03-29',
         title: 'Conhecemos o Nordeste!!',
         description: 'A viagem dos sonhos para relaxar e aproveitar a vida 🌴',
-        image: 'assets/images/timeline/donatello.jpg'
+        image: 'assets/images/timeline/viagemtop.jpg'
       },
       {
         date: '2025-06-12',
         title: 'Seguimos...',
         description: 'Seguimos escrevendo nossa história juntos, com amor e aventuras! 💖',
-        image: 'assets/images/timeline/donatello.jpg'
+        image: 'assets/images/timeline/preencher.png'
       }
       // Adicione mais momentos aqui
     ];
