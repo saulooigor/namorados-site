@@ -15,6 +15,7 @@ class TypewriterLetter {
     this.currentIndex = 0;
     this.typingSpeed = 50; // Velocidade em ms
     this.pauseAfterParagraph = 800; // Pausa entre parágrafos
+    this.isInitialized = false;
     
     // SUA CARTA AQUI - PERSONALIZE!
     this.letterText = `Meu amor,
@@ -41,15 +42,16 @@ class TypewriterLetter {
     A + B 4ever! 💞
     Te amo, esporida! 💖`;
     
-    this.init();
+    // NÃO inicializar automaticamente - aguardar evento
   }
   
   init() {
-    if (!this.letterElement) return;
+    if (!this.letterElement || this.isInitialized) return;
     
     this.setupDate();
     this.setupEventListeners();
     this.observeSection();
+    this.isInitialized = true;
     
     console.log('💌 Carta de amor carregada!');
   }
@@ -288,57 +290,64 @@ class TypewriterLetter {
   }
 }
 
-// ===== INICIALIZAÇÃO =====
+// ===== INICIALIZAÇÃO SEGURA =====
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('🔄 DOM carregado, aguardando site principal...');
+// Função para verificar se elementos estão prontos
+function checkElementsReady() {
+  const mainSite = document.getElementById('main-site');
+  const letterElement = document.getElementById('love-letter');
   
-  // Função para verificar se o site está pronto
-  function checkAndInitialize() {
-    const mainSite = document.getElementById('main-site');
-    const letterElement = document.getElementById('love-letter');
-    
-    console.log('Verificando elementos:', {
-      mainSite: !!mainSite,
-      mainSiteVisible: mainSite && !mainSite.classList.contains('hidden'),
-      letterElement: !!letterElement
-    });
-    
-    if (mainSite && !mainSite.classList.contains('hidden') && letterElement) {
-      console.log('✅ Inicializando typewriter...');
-      window.typewriterLetter = new TypewriterLetter();
-      return true;
-    }
-    return false;
+  return mainSite && 
+         !mainSite.classList.contains('hidden') && 
+         getComputedStyle(mainSite).opacity !== '0' && 
+         letterElement;
+}
+
+// Função para inicializar typewriter
+function initializeTypewriter() {
+  if (window.typewriterLetter) {
+    console.log('⚠️ Typewriter já inicializado');
+    return;
   }
   
-  // Tentar imediatamente
-  if (checkAndInitialize()) return;
+  if (!checkElementsReady()) {
+    console.log('❌ Elementos não estão prontos para typewriter');
+    return;
+  }
   
-  // Tentar após 2 segundos
+  console.log('✅ Inicializando typewriter...');
+  window.typewriterLetter = new TypewriterLetter();
+  window.typewriterLetter.init();
+}
+
+// ===== EVENT LISTENERS =====
+
+// Escutar evento do countdown
+document.addEventListener('siteReady', (e) => {
+  console.log('🎉 Site pronto detectado! Inicializando typewriter...');
+  
+  // Pequeno delay para garantir que tudo está renderizado
   setTimeout(() => {
-    if (checkAndInitialize()) return;
-    
-    // Tentar a cada 1 segundo por até 10 tentativas
-    let attempts = 0;
-    const interval = setInterval(() => {
-      attempts++;
-      console.log(`🔄 Tentativa ${attempts}/10`);
-      
-      if (checkAndInitialize() || attempts >= 10) {
-        clearInterval(interval);
-        if (attempts >= 10) {
-          console.error('❌ Falha ao inicializar typewriter após 10 tentativas');
-        }
-      }
-    }, 1000);
-  }, 2000);
+    initializeTypewriter();
+  }, 500);
+});
+
+// Fallback para desenvolvimento/debug
+document.addEventListener('DOMContentLoaded', () => {
+  // Aguardar um pouco antes de verificar
+  setTimeout(() => {
+    if (checkElementsReady()) {
+      console.log('🔄 Fallback: Site já está pronto, inicializando typewriter...');
+      initializeTypewriter();
+    }
+  }, 3000);
 });
 
 // Função de emergência para forçar inicialização
 window.forceInitTypewriter = function() {
   console.log('🚨 Forçando inicialização do typewriter...');
   window.typewriterLetter = new TypewriterLetter();
+  window.typewriterLetter.init();
 };
 
 // Exportar para uso global

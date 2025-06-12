@@ -3,7 +3,7 @@
 class CountdownTimer {
   constructor() {
     // Data target - AJUSTE AQUI PARA SUA DATA
-    this.targetDate = new Date('2025-06-12T12:00:00-03:00'); // 12 de junho 2025, 00:00 (horário de Brasília)
+    this.targetDate = new Date('2025-06-12T12:00:00-03:00');
     
     // Elementos DOM
     this.daysEl = document.getElementById('days');
@@ -22,6 +22,13 @@ class CountdownTimer {
   }
   
   init() {
+    // Verificar se já passou da data antes de mostrar countdown
+    if (this.isDatePassed()) {
+      this.hideLoading();
+      this.revealSite();
+      return;
+    }
+    
     // Esconder loading e mostrar countdown após um delay pequeno
     setTimeout(() => {
       this.hideLoading();
@@ -143,10 +150,35 @@ class CountdownTimer {
           setTimeout(() => {
             this.mainSite.style.transition = 'opacity 1s ease-in-out';
             this.mainSite.style.opacity = '1';
+            
+            // EVENTO PRINCIPAL - Disparar evento quando site estiver completamente visível
+            setTimeout(() => {
+              this.dispatchSiteReadyEvent();
+            }, 1000);
           }, 100);
         }
       }, 600);
+    } else {
+      // Se não há countdown screen, revelar diretamente
+      if (this.mainSite) {
+        this.mainSite.classList.remove('hidden');
+        this.mainSite.style.opacity = '1';
+        this.dispatchSiteReadyEvent();
+      }
     }
+  }
+  
+  // NOVO MÉTODO - Disparar evento personalizado
+  dispatchSiteReadyEvent() {
+    const siteReadyEvent = new CustomEvent('siteReady', {
+      detail: {
+        timestamp: new Date(),
+        countdownFinished: this.isCountdownFinished
+      }
+    });
+    
+    document.dispatchEvent(siteReadyEvent);
+    console.log('🎉 Site pronto! Evento "siteReady" disparado.');
   }
   
   isDatePassed() {

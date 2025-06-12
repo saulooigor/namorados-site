@@ -27,10 +27,11 @@ class MusicPlayer {
     this.volume = 0.7;
     this.isDragging = false;
     this.isVolumeChanging = false;
+    this.isInitialized = false;
     
     // SUAS MÚSICAS AQUI - Personalize!
     this.songs = [
-    {
+      {
         title: "Somewhere Over the Rainbow",
         artist: "Israel Kamakawiwo'ole",
         src: "assets/music/gordao.mp3",
@@ -67,17 +68,26 @@ class MusicPlayer {
       }
     ];
     
-    this.init();
+    // NÃO inicializar automaticamente - aguardar evento
   }
   
   init() {
+    if (this.isInitialized) return;
+    
     console.log('🎵 Inicializando music player...');
+    
+    // Verificar se elementos essenciais existem
+    if (!this.playBtn || !this.songTitle) {
+      console.error('❌ Elementos essenciais do music player não encontrados');
+      return;
+    }
     
     this.createAudioElement();
     this.renderPlaylist();
     this.setupEventListeners();
     this.loadSong(this.currentSongIndex);
     this.setVolume(this.volume);
+    this.isInitialized = true;
     
     // Auto-play após alguns segundos (se o usuário interagiu com a página)
     setTimeout(() => {
@@ -416,6 +426,14 @@ class MusicPlayer {
     }
   }
   
+  showLoading() {
+    // Implementar indicador de loading se necessário
+  }
+  
+  hideLoading() {
+    // Remover indicador de loading se necessário
+  }
+  
   showPlayPrompt() {
     if (this.playBtn) {
       this.playBtn.style.animation = 'pulse 1s ease-in-out infinite';
@@ -452,18 +470,67 @@ class MusicPlayer {
   }
 }
 
-// ===== INICIALIZAÇÃO =====
+// ===== INICIALIZAÇÃO SEGURA =====
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Aguardar site principal estar visível
+// Função para verificar se elementos estão prontos
+function checkMusicElementsReady() {
+  const mainSite = document.getElementById('main-site');
+  const playBtn = document.getElementById('play-btn');
+  const songTitle = document.getElementById('song-title');
+  
+  return mainSite && 
+         !mainSite.classList.contains('hidden') && 
+         getComputedStyle(mainSite).opacity !== '0' && 
+         playBtn && 
+         songTitle;
+}
+
+// Função para inicializar music player
+function initializeMusicPlayer() {
+  if (window.musicPlayer) {
+    console.log('⚠️ Music Player já inicializado');
+    return;
+  }
+  
+  if (!checkMusicElementsReady()) {
+    console.log('❌ Elementos não estão prontos para music player');
+    return;
+  }
+  
+  console.log('✅ Inicializando music player...');
+  window.musicPlayer = new MusicPlayer();
+  window.musicPlayer.init();
+}
+
+// ===== EVENT LISTENERS =====
+
+// Escutar evento do countdown
+document.addEventListener('siteReady', (e) => {
+  console.log('🎉 Site pronto detectado! Inicializando music player...');
+  
+  // Delay maior para music player (aguardar typewriter primeiro)
   setTimeout(() => {
-    const mainSite = document.getElementById('main-site');
-    if (mainSite && !mainSite.classList.contains('hidden')) {
-      window.musicPlayer = new MusicPlayer();
-      console.log('🎶 Music player carregado!');
-    }
-  }, 4000);
+    initializeMusicPlayer();
+  }, 1500);
 });
+
+// Fallback para desenvolvimento/debug
+document.addEventListener('DOMContentLoaded', () => {
+  // Aguardar mais tempo para music player
+  setTimeout(() => {
+    if (checkMusicElementsReady()) {
+      console.log('🔄 Fallback: Site já está pronto, inicializando music player...');
+      initializeMusicPlayer();
+    }
+  }, 5000);
+});
+
+// Função de emergência para forçar inicialização
+window.forceInitMusicPlayer = function() {
+  console.log('🚨 Forçando inicialização do music player...');
+  window.musicPlayer = new MusicPlayer();
+  window.musicPlayer.init();
+};
 
 // Exportar para uso global
 window.MusicPlayer = MusicPlayer;
